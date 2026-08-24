@@ -1,0 +1,228 @@
+{
+  "summary": {
+    "tfidf_sparse": {
+      "Precision@1": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_95": [
+          100.0,
+          100.0
+        ],
+        "display": "100.00 \u00b1 0.00"
+      },
+      "Precision@3": {
+        "mean": 66.67,
+        "std": 47.14,
+        "ci_95": [
+          33.33,
+          100.0
+        ],
+        "display": "66.67 \u00b1 47.14"
+      },
+      "Precision@4": {
+        "mean": 50.0,
+        "std": 35.36,
+        "ci_95": [
+          25.0,
+          75.0
+        ],
+        "display": "50.00 \u00b1 35.36"
+      },
+      "Recall@4": {
+        "mean": 50.0,
+        "std": 35.36,
+        "ci_95": [
+          25.0,
+          75.0
+        ],
+        "display": "50.00 \u00b1 35.36"
+      },
+      "MRR": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "display": "1.000 \u00b1 0.000"
+      },
+      "NDCG@4": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "display": "1.000 \u00b1 0.000"
+      }
+    },
+    "faiss_dense": {
+      "Precision@1": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_95": [
+          100.0,
+          100.0
+        ],
+        "display": "100.00 \u00b1 0.00"
+      },
+      "Precision@3": {
+        "mean": 66.67,
+        "std": 47.14,
+        "ci_95": [
+          33.33,
+          100.0
+        ],
+        "display": "66.67 \u00b1 47.14"
+      },
+      "Precision@4": {
+        "mean": 62.5,
+        "std": 53.03,
+        "ci_95": [
+          25.0,
+          100.0
+        ],
+        "display": "62.50 \u00b1 53.03"
+      },
+      "Recall@4": {
+        "mean": 62.5,
+        "std": 53.03,
+        "ci_95": [
+          25.0,
+          100.0
+        ],
+        "display": "62.50 \u00b1 53.03"
+      },
+      "MRR": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "display": "1.000 \u00b1 0.000"
+      },
+      "NDCG@4": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "display": "1.000 \u00b1 0.000"
+      }
+    },
+    "hybrid_rrf": {
+      "Precision@1": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_95": [
+          100.0,
+          100.0
+        ],
+        "display": "100.00 \u00b1 0.00"
+      },
+      "Precision@3": {
+        "mean": 66.67,
+        "std": 47.14,
+        "ci_95": [
+          33.33,
+          100.0
+        ],
+        "display": "66.67 \u00b1 47.14"
+      },
+      "Precision@4": {
+        "mean": 50.0,
+        "std": 35.36,
+        "ci_95": [
+          25.0,
+          75.0
+        ],
+        "display": "50.00 \u00b1 35.36"
+      },
+      "Recall@4": {
+        "mean": 50.0,
+        "std": 35.36,
+        "ci_95": [
+          25.0,
+          75.0
+        ],
+        "display": "50.00 \u00b1 35.36"
+      },
+      "MRR": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "display": "1.000 \u00b1 0.000"
+      },
+      "NDCG@4": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_95": [
+          1.0,
+          1.0
+        ],
+        "display": "1.000 \u00b1 0.000"
+      }
+    }
+  },
+  "raw_metrics": {
+    "tfidf_sparse": [
+      {
+        "precision_at_1": 1.0,
+        "precision_at_3": 1.0,
+        "precision_at_4": 0.75,
+        "recall_at_4": 0.75,
+        "mrr": 1.0,
+        "ndcg_at_4": 1.0
+      },
+      {
+        "precision_at_1": 1.0,
+        "precision_at_3": 0.3333,
+        "precision_at_4": 0.25,
+        "recall_at_4": 0.25,
+        "mrr": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    ],
+    "faiss_dense": [
+      {
+        "precision_at_1": 1.0,
+        "precision_at_3": 1.0,
+        "precision_at_4": 1.0,
+        "recall_at_4": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_4": 1.0
+      },
+      {
+        "precision_at_1": 1.0,
+        "precision_at_3": 0.3333,
+        "precision_at_4": 0.25,
+        "recall_at_4": 0.25,
+        "mrr": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    ],
+    "hybrid_rrf": [
+      {
+        "precision_at_1": 1.0,
+        "precision_at_3": 1.0,
+        "precision_at_4": 0.75,
+        "recall_at_4": 0.75,
+        "mrr": 1.0,
+        "ndcg_at_4": 1.0
+      },
+      {
+        "precision_at_1": 1.0,
+        "precision_at_3": 0.3333,
+        "precision_at_4": 0.25,
+        "recall_at_4": 0.25,
+        "mrr": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    ]
+  }
+}

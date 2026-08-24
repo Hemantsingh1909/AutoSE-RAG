@@ -1,0 +1,13 @@
+{
+  "id": "R08",
+  "category": "Diagnostics Healing",
+  "asil": "ASIL-B",
+  "requirement": "The diagnostic manager shall heal a confirmed DTC if 40 consecutive drive cycles complete without error detection, extinguishing the Malfunction Indicator Lamp.",
+  "relevant_documents": ["autosar_diagnostics.md"],
+  "constraints": [
+    {"id": "C1", "description": "Track consecutive healing drive cycles without faults", "check": "healing"},
+    {"id": "C2", "description": "Enforce 40-cycle threshold to qualify DTC clearing", "check": "40"},
+    {"id": "C3", "description": "Extinguish Malfunction Indicator Lamp (MIL) status", "check": "PASSED"},
+    {"id": "C4", "description": "Reset error debounce state upon healing confirmation", "check": "0"}
+  ]
+}

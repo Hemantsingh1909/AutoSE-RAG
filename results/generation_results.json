@@ -1,0 +1,272 @@
+{
+  "summary": {
+    "no_rag": {
+      "AST Syntactic Correctness (%)": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_95": [
+          100.0,
+          100.0
+        ],
+        "display": "100.0%"
+      },
+      "Constraint Coverage (%)": {
+        "mean": 65.0,
+        "std": 21.2132,
+        "ci_95": [
+          50.0,
+          80.0
+        ],
+        "display": "65.0 \u00b1 21.2%"
+      },
+      "Initial Oracle Pass Rate (%)": {
+        "mean": 87.5,
+        "std": 17.6777,
+        "ci_95": [
+          75.0,
+          100.0
+        ],
+        "display": "87.5%"
+      },
+      "Final Oracle Pass Rate (%)": {
+        "mean": 87.5,
+        "std": 17.6777,
+        "ci_final": [
+          75.0,
+          100.0
+        ],
+        "display": "87.5%"
+      },
+      "Hallucination Rate (UGCR) (%)": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci_hall": [
+          0.0,
+          0.0
+        ],
+        "display": "0.0%"
+      },
+      "Traceability Completeness (0-1)": {
+        "mean": 0.1305,
+        "std": 0.0714,
+        "ci_trace": [
+          0.08,
+          0.181
+        ],
+        "display": "0.131 \u00b1 0.071"
+      },
+      "Revision Success Rate (%)": {
+        "mean": 0.0,
+        "display": "0.0%"
+      },
+      "Regression Rate (%)": {
+        "mean": 0.0,
+        "display": "0.0%"
+      }
+    },
+    "standard_rag": {
+      "AST Syntactic Correctness (%)": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_95": [
+          100.0,
+          100.0
+        ],
+        "display": "100.0%"
+      },
+      "Constraint Coverage (%)": {
+        "mean": 75.0,
+        "std": 35.3553,
+        "ci_95": [
+          50.0,
+          100.0
+        ],
+        "display": "75.0 \u00b1 35.4%"
+      },
+      "Initial Oracle Pass Rate (%)": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_95": [
+          100.0,
+          100.0
+        ],
+        "display": "100.0%"
+      },
+      "Final Oracle Pass Rate (%)": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_final": [
+          100.0,
+          100.0
+        ],
+        "display": "100.0%"
+      },
+      "Hallucination Rate (UGCR) (%)": {
+        "mean": 0.675,
+        "std": 0.9546,
+        "ci_hall": [
+          0.0,
+          1.35
+        ],
+        "display": "0.7%"
+      },
+      "Traceability Completeness (0-1)": {
+        "mean": 0.701,
+        "std": 0.0,
+        "ci_trace": [
+          0.701,
+          0.701
+        ],
+        "display": "0.701 \u00b1 0.000"
+      },
+      "Revision Success Rate (%)": {
+        "mean": 0.0,
+        "display": "0.0%"
+      },
+      "Regression Rate (%)": {
+        "mean": 0.0,
+        "display": "0.0%"
+      }
+    },
+    "agentic_rag": {
+      "AST Syntactic Correctness (%)": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_95": [
+          100.0,
+          100.0
+        ],
+        "display": "100.0%"
+      },
+      "Constraint Coverage (%)": {
+        "mean": 75.0,
+        "std": 35.3553,
+        "ci_95": [
+          50.0,
+          100.0
+        ],
+        "display": "75.0 \u00b1 35.4%"
+      },
+      "Initial Oracle Pass Rate (%)": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_95": [
+          100.0,
+          100.0
+        ],
+        "display": "100.0%"
+      },
+      "Final Oracle Pass Rate (%)": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci_final": [
+          100.0,
+          100.0
+        ],
+        "display": "100.0%"
+      },
+      "Hallucination Rate (UGCR) (%)": {
+        "mean": 0.675,
+        "std": 0.9546,
+        "ci_hall": [
+          0.0,
+          1.35
+        ],
+        "display": "0.7%"
+      },
+      "Traceability Completeness (0-1)": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci_trace": [
+          1.0,
+          1.0
+        ],
+        "display": "1.000 \u00b1 0.000"
+      },
+      "Revision Success Rate (%)": {
+        "mean": 0.0,
+        "display": "0.0%"
+      },
+      "Regression Rate (%)": {
+        "mean": 0.0,
+        "display": "0.0%"
+      }
+    }
+  },
+  "raw_results": {
+    "no_rag": [
+      {
+        "ast_valid": true,
+        "constraint_coverage": 0.8,
+        "initial_pass_rate": 0.75,
+        "final_pass_rate": 0.75,
+        "hallucination_rate": 0.0,
+        "traceability_score": 0.08,
+        "initial_failure": true,
+        "repaired_success": false,
+        "regressed": false
+      },
+      {
+        "ast_valid": true,
+        "constraint_coverage": 0.5,
+        "initial_pass_rate": 1.0,
+        "final_pass_rate": 1.0,
+        "hallucination_rate": 0.0,
+        "traceability_score": 0.181,
+        "initial_failure": false,
+        "repaired_success": false,
+        "regressed": false
+      }
+    ],
+    "standard_rag": [
+      {
+        "ast_valid": true,
+        "constraint_coverage": 1.0,
+        "initial_pass_rate": 1.0,
+        "final_pass_rate": 1.0,
+        "hallucination_rate": 0.0135,
+        "traceability_score": 0.701,
+        "initial_failure": false,
+        "repaired_success": false,
+        "regressed": false
+      },
+      {
+        "ast_valid": true,
+        "constraint_coverage": 0.5,
+        "initial_pass_rate": 1.0,
+        "final_pass_rate": 1.0,
+        "hallucination_rate": 0.0,
+        "traceability_score": 0.701,
+        "initial_failure": false,
+        "repaired_success": false,
+        "regressed": false
+      }
+    ],
+    "agentic_rag": [
+      {
+        "ast_valid": true,
+        "constraint_coverage": 1.0,
+        "initial_pass_rate": 1.0,
+        "final_pass_rate": 1.0,
+        "hallucination_rate": 0.0135,
+        "traceability_score": 1.0,
+        "initial_failure": false,
+        "repaired_success": false,
+        "regressed": false,
+        "revisions_count": 0
+      },
+      {
+        "ast_valid": true,
+        "constraint_coverage": 0.5,
+        "initial_pass_rate": 1.0,
+        "final_pass_rate": 1.0,
+        "hallucination_rate": 0.0,
+        "traceability_score": 1.0,
+        "initial_failure": false,
+        "repaired_success": false,
+        "regressed": false,
+        "revisions_count": 0
+      }
+    ]
+  }
+}

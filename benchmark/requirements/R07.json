@@ -1,0 +1,13 @@
+{
+  "id": "R07",
+  "category": "Communication Timing",
+  "asil": "ASIL-B",
+  "requirement": "The communication handler shall detect bus timeout when inter-frame arrival exceeds 1.5 times the nominal cycle time and trigger degraded communication mode.",
+  "relevant_documents": ["e2e_communication_security.md"],
+  "constraints": [
+    {"id": "C1", "description": "Track elapsed duration between consecutive frames", "check": "cycle_time"},
+    {"id": "C2", "description": "Enforce timeout limit at 1.5 times the nominal cycle time", "check": "1.5"},
+    {"id": "C3", "description": "Trigger degraded communication mode upon timeout", "check": "degraded"},
+    {"id": "C4", "description": "Maintain normal communication mode within time window", "check": "True"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "R05",
+  "category": "Safety & SPoF",
+  "asil": "ASIL-D",
+  "requirement": "The brake-by-wire supervisor shall perform dual cross-channel comparison with less than 5% tolerance and immediately assert emergency hydraulic backup on discrepancy.",
+  "relevant_documents": ["iso26262_functional_safety.md", "sensor_validation_safety.md"],
+  "constraints": [
+    {"id": "C1", "description": "Perform cross-channel redundant comparison between channels", "check": "pps"},
+    {"id": "C2", "description": "Enforce strict tolerance threshold (< 5% discrepancy)", "check": "0.2"},
+    {"id": "C3", "description": "Engage emergency hydraulic backup failsafe mode on violation", "check": "PLAUSIBILITY"},
+    {"id": "C4", "description": "Maintain normal braking while channels agree", "check": "PLAUSIBLE"}
+  ]
+}

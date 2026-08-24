@@ -1,0 +1,13 @@
+{
+  "id": "R09",
+  "category": "Functional Safety",
+  "asil": "ASIL-D",
+  "requirement": "The steering angle sensor monitoring module shall ensure bounded execution time and prevent numeric overflow during Kalman filtering state updates.",
+  "relevant_documents": ["iso26262_functional_safety.md"],
+  "constraints": [
+    {"id": "C1", "description": "Guard against numeric overflow and floating-point errors", "check": "overflow"},
+    {"id": "C2", "description": "Enforce deterministic bounded execution without dynamic recursion", "check": "bounded"},
+    {"id": "C3", "description": "Validate steering angle within physical steering rack limits", "check": "validate"},
+    {"id": "C4", "description": "Return safety status flag", "check": "STATUS_OK"}
+  ]
+}

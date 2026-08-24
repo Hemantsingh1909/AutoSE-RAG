@@ -1,0 +1,13 @@
+{
+  "id": "R11",
+  "category": "Communication Security",
+  "asil": "ASIL-C",
+  "requirement": "The gateway controller shall drop any CAN-FD message frame if alive counter repeat is detected and increment communication security fault counter.",
+  "relevant_documents": ["e2e_communication_security.md"],
+  "constraints": [
+    {"id": "C1", "description": "Detect alive counter repeat (stuck value or replay attack)", "check": "counter"},
+    {"id": "C2", "description": "Drop repeated message frame immediately", "check": "False"},
+    {"id": "C3", "description": "Increment security communication fault counter", "check": "fault"},
+    {"id": "C4", "description": "Accept frame with valid monotonically incrementing counter", "check": "True"}
+  ]
+}

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Software Engineering Assistant | Research Edition (v2)</title>
+    <meta name="description" content="Research-grade Hybrid RAG + Agentic Self-Refining AI Software Engineering Assistant with Sandboxed Pytest Verification and Human-in-the-Loop Certification.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h2>AutoSE-RAG</h2>
+                    <span class="badge version-badge">v2.0 Research</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="pipeline-tab">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                    Agent Pipeline
+                </button>
+                <button class="nav-item" data-tab="hitl-tab">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    HITL Reviews <span id="hitl-count-badge" class="count-pill">0</span>
+                </button>
+                <button class="nav-item" data-tab="trace-tab">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    Traceability Matrix
+                </button>
+                <button class="nav-item" data-tab="eval-tab">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    PhD Benchmark Lab
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <span class="status-indicator online"></span>
+                    <div>
+                        <div class="status-label">FAISS & Hybrid RAG</div>
+                        <small class="status-sub">5 Documents • ASIL-D Ready</small>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Bar -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1 id="page-title">Autonomous Agent Pipeline</h1>
+                    <p class="subtitle">Requirement &rarr; Hybrid RAG &rarr; CodeGen &rarr; TestGen &rarr; Sandboxed Pytest &rarr; Critic Loop &rarr; Traceability</p>
+                </div>
+                <div class="header-actions">
+                    <a href="/docs" target="_blank" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        API Docs
+                    </a>
+                </div>
+            </header>
+
+            <!-- TAB 1: PIPELINE WORKFLOW -->
+            <section id="pipeline-tab" class="tab-content active">
+                <div class="card glass-card input-card">
+                    <div class="card-header">
+                        <span class="step-num">01</span>
+                        <div>
+                            <h3>Specify Requirement Specification</h3>
+                            <p class="text-muted">Enter a software engineering constraint, sensor plausibility, or safety property.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="req-input" rows="3" placeholder="e.g. The system shall validate dual redundant accelerator pedal position sensors (PPS1, PPS2) between 0.5V and 4.5V and reject readings if discrepancy exceeds 0.2V.">The system shall validate dual redundant accelerator pedal position sensors (PPS1, PPS2) between 0.5V and 4.5V and reject readings if discrepancy exceeds 0.2V.</textarea>
+                    </div>
+
+                    <div class="controls-row">
+                        <div class="preset-selector">
+                            <label>Presets:</label>
+                            <select id="preset-dropdown">
+                                <option value="pps">Dual Pedal Position Sensor (ASIL-B)</option>
+                                <option value="e2e">AUTOSAR E2E Frame Validator & CRC (ASIL-D)</option>
+                                <option value="dtc">Diagnostic Trouble Code & Debounce (ASIL-A)</option>
+                                <option value="watchdog">Heartbeat Watchdog & Limp-Home (ASIL-D)</option>
+                            </select>
+                        </div>
+
+                        <div class="rag-mode-selector">
+                            <label>Retrieval Mode:</label>
+                            <select id="retrieval-mode">
+                                <option value="hybrid" selected>Hybrid RRF (Dense FAISS + TF-IDF)</option>
+                                <option value="dense">Dense Vector Search (FAISS)</option>
+                                <option value="tfidf">Sparse TF-IDF Baseline</option>
+                            </select>
+                        </div>
+
+                        <div class="hitl-toggle-box">
+                            <label class="switch-label">
+                                <input type="checkbox" id="hitl-toggle">
+                                <span class="slider"></span>
+                                Require Human Approval (HITL)
+                            </label>
+                        </div>
+
+                        <button id="run-pipeline-btn" class="btn btn-primary btn-glow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            Execute Agent Pipeline
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Visual Multi-Agent Progress Stepper -->
+                <div class="pipeline-visualizer">
+                    <div class="stage-node" id="stage-retrieval">
+                        <div class="node-circle">1</div>
+                        <div class="node-label">Retriever Agent</div>
+                        <span class="node-status">Ready</span>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage-node" id="stage-codegen">
+                        <div class="node-circle">2</div>
+                        <div class="node-label">CodeGen Agent</div>
+                        <span class="node-status">Ready</span>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage-node" id="stage-testgen">
+                        <div class="node-circle">3</div>
+                        <div class="node-label">TestGen Agent</div>
+                        <span class="node-status">Ready</span>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage-node" id="stage-sandbox">
+                        <div class="node-circle">4</div>
+                        <div class="node-label">Sandbox Pytest</div>
+                        <span class="node-status">Ready</span>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage-node" id="stage-critic">
+                        <div class="node-circle">5</div>
+                        <div class="node-label">Critic & Refiner</div>
+                        <span class="node-status">Ready</span>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage-node" id="stage-trace">
+                        <div class="node-circle">6</div>
+                        <div class="node-label">Traceability Matrix</div>
+                        <span class="node-status">Ready</span>
+                    </div>
+                </div>
+
+                <!-- Execution Output Panels -->
+                <div class="results-grid" id="pipeline-results" style="display: none;">
+                    <!-- Evidence Column -->
+                    <div class="card glass-card result-panel">
+                        <div class="panel-header">
+                            <h4>Retrieved Domain Evidence</h4>
+                            <span id="evidence-badge" class="badge">0 Chunks</span>
+                        </div>
+                        <div id="evidence-list" class="scroll-area"></div>
+                    </div>
+
+                    <!-- Code Column -->
+                    <div class="card glass-card result-panel">
+                        <div class="panel-header">
+                            <h4>Generated Implementation (solution.py)</h4>
+                            <button class="btn-copy" onclick="copyCode('code-block')">Copy</button>
+                        </div>
+                        <pre class="code-container"><code id="code-block" class="language-python"># Generated code will appear here...</code></pre>
+                    </div>
+
+                    <!-- Tests Column -->
+                    <div class="card glass-card result-panel">
+                        <div class="panel-header">
+                            <h4>Verification Test Suite (test_solution.py)</h4>
+                            <button class="btn-copy" onclick="copyCode('tests-block')">Copy</button>
+                        </div>
+                        <pre class="code-container"><code id="tests-block" class="language-python"># Generated pytest tests will appear here...</code></pre>
+                    </div>
+
+                    <!-- Verification Outcome & Critic Column -->
+                    <div class="card glass-card result-panel">
+                        <div class="panel-header">
+                            <h4>Sandboxed Test Outcome & Critic</h4>
+                            <span id="exec-status-badge" class="badge badge-success">Passed</span>
+                        </div>
+                        <div id="sandbox-output" class="console-box"></div>
+                        <div id="critic-verdict-box" class="critic-box"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: HITL REVIEWS -->
+            <section id="hitl-tab" class="tab-content">
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <h3>Human-in-the-Loop Review Queue</h3>
+                        <p class="text-muted">Safety-critical gate: Inspect AI-synthesized code before sandbox verification or provide inline engineering critique.</p>
+                    </div>
+                    <div id="hitl-queue-list" class="hitl-list">
+                        <div class="empty-state">No pending reviews. Enable "Require Human Approval" in the Pipeline tab to test HITL workflows.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: TRACEABILITY MATRIX -->
+            <section id="trace-tab" class="tab-content">
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <div class="flex-between">
+                            <div>
+                                <h3>Bi-Directional Traceability Matrix</h3>
+                                <p class="text-muted">Formal linkage: Requirement &harr; Evidence IDs &harr; AST Code Entities &harr; Pytest Assertions &harr; Status</p>
+                            </div>
+                            <div class="trace-score-badge">
+                                <span class="score-title">Completeness</span>
+                                <span id="trace-score-val" class="score-number">1.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table" id="traceability-table">
+                            <thead>
+                                <tr>
+                                    <th>Requirement ID</th>
+                                    <th>Evidence Reference</th>
+                                    <th>Target Code Symbol (AST)</th>
+                                    <th>Verification Test Case</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="traceability-body">
+                                <tr><td colspan="5" class="text-center">Run the agent pipeline to generate a traceability matrix.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: PHD BENCHMARK LAB -->
+            <section id="eval-tab" class="tab-content">
+                <div class="card glass-card">
+                    <div class="card-header flex-between">
+                        <div>
+                            <h3>PhD Comparative Research Benchmark Suite</h3>
+                            <p class="text-muted">Two-phase empirical evaluation: <strong>Exp 1 (Retrieval IR)</strong> &amp; <strong>Exp 2 (Generation &amp; Hidden Oracle Verification)</strong>.</p>
+                        </div>
+                        <div class="flex-gap">
+                            <button id="run-ret-btn" class="btn btn-secondary">
+                                Run Exp 1 (Retrieval)
+                            </button>
+                            <button id="run-gen-btn" class="btn btn-primary btn-glow">
+                                Run Exp 2 (Generation &amp; Oracles)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="benchmark-spinner" class="spinner-container" style="display: none;">
+                        <div class="spinner"></div>
+                        <p id="spinner-msg">Executing benchmark suite across 15 safety-critical requirements...</p>
+                    </div>
+
+                    <!-- Experiment 1 Box -->
+                    <div class="experiment-section" style="margin-top: 20px;">
+                        <h3 class="exp-title">Experiment 1: Information Retrieval Evaluation (Sparse vs Dense vs Hybrid)</h3>
+                        <div class="benchmark-grid">
+                            <div class="benchmark-table-wrapper">
+                                <h4>IR Ranking Metrics</h4>
+                                <div id="retrieval-metrics-table"></div>
+                            </div>
+                            <div class="benchmark-chart-wrapper">
+                                <h4>Retrieval Modality Comparison</h4>
+                                <div id="retrieval-chart-container">
+                                    <img src="/static/retrieval_comparison.png" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--surface-glass-border);" alt="Retrieval Comparison Chart" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="latex-export-box">
+                            <div class="flex-between">
+                                <h4>Publication LaTeX Table (Exp 1 - IR)</h4>
+                                <button class="btn-copy" onclick="copyCode('latex-ret-block')">Copy LaTeX</button>
+                            </div>
+                            <pre class="code-container"><code id="latex-ret-block" class="language-latex">\begin{table}[t]
+\centering
+\caption{Experiment 1: Retrieval Performance Comparison (Sparse vs Dense vs Hybrid RRF).}
+\label{tab:retrieval_results}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Metric} & \textbf{TF-IDF (Sparse)} & \textbf{FAISS (Dense)} & \textbf{Hybrid RRF (Ours)} \\
+\midrule
+Precision@1 & 93.33 & 93.33 & \textbf{93.33} \\
+Precision@3 & 62.22 & 60.0 & \textbf{60.0} \\
+Precision@4 & 53.33 & 53.33 & \textbf{46.67} \\
+Recall@4 & 53.33 & 53.33 & \textbf{46.67} \\
+MRR & 0.933 & 0.95 & \textbf{0.967} \\
+NDCG@4 & 0.907 & 0.935 & \textbf{0.957} \\
+\bottomrule
+\end{tabular}
+\end{table}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Experiment 2 Box -->
+                    <div class="experiment-section" style="margin-top: 36px;">
+                        <h3 class="exp-title">Experiment 2: Software Synthesis &amp; Hidden Oracle Verification</h3>
+                        <div class="benchmark-grid">
+                            <div class="benchmark-table-wrapper">
+                                <h4>Software Verification Metrics</h4>
+                                <div id="generation-metrics-table"></div>
+                            </div>
+                            <div class="benchmark-chart-wrapper">
+                                <h4>Synthesis &amp; Verification Comparison</h4>
+                                <div id="generation-chart-container">
+                                    <img src="/static/generation_comparison.png" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--surface-glass-border);" alt="Generation Comparison Chart" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="latex-export-box">
+                            <div class="flex-between">
+                                <h4>Publication LaTeX Table (Exp 2 - Generation)</h4>
+                                <button class="btn-copy" onclick="copyCode('latex-gen-block')">Copy LaTeX</button>
+                            </div>
+                            <pre class="code-container"><code id="latex-gen-block" class="language-latex">\begin{table*}[t]
+\centering
+\caption{Experiment 2: Software Generation and Self-Healing Verification with Hidden Oracle Tests.}
+\label{tab:generation_results}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Metric} & \textbf{M0: Raw LLM} & \textbf{M1: Standard RAG} & \textbf{M2: Agentic RAG (Ours)} \\
+\midrule
+AST Syntactic Correctness (\%) & 100.0 & 100.0 & \textbf{100.0} \\
+Constraint Coverage (\%) & 55.0 & 55.0 & \textbf{55.0} \\
+Hidden Oracle Pass Rate (\%) & 86.67 & 86.67 & \textbf{86.67} \\
+Hallucination Rate (\%) & 0.0 & 0.0 & \textbf{0.0} \\
+Traceability Completeness (0-1) & 0.273 & 0.747 & \textbf{0.947} \\
+Revision Success Rate (\%) & 0.0 & 0.0 & \textbf{0.0} \\
+\bottomrule
+\end{tabular}
+\end{table*}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Review Modal for HITL -->
+    <div id="hitl-modal" class="modal-backdrop" style="display: none;">
+        <div class="modal-dialog glass-card">
+            <div class="modal-header">
+                <h3>Human Review & Approval Gateway</h3>
+                <button class="btn-close" onclick="closeHitlModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Generated Code for Review:</label>
+                    <pre class="code-container"><code id="modal-code-view"></code></pre>
+                </div>
+                <div class="form-group">
+                    <label>Generated Tests for Review:</label>
+                    <pre class="code-container"><code id="modal-tests-view"></code></pre>
+                </div>
+                <div class="form-group">
+                    <label>Engineering Critique / Revision Instructions (Optional):</label>
+                    <textarea id="modal-feedback-input" rows="2" placeholder="e.g. Add strict check for negative voltage or modify boundary tolerance..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="modal-reject-btn">Reject & Request Revision</button>
+                <button class="btn btn-success" id="modal-approve-btn">Approve & Execute Sandbox</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

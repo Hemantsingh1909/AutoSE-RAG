@@ -1,0 +1,13 @@
+{
+  "id": "R02",
+  "category": "Watchdog & Safety",
+  "asil": "ASIL-D",
+  "requirement": "The system shall maintain a watchdog heartbeat timer and transition to safe state (torque disable) if heartbeat is not refreshed within 50ms Fault Tolerant Time Interval.",
+  "relevant_documents": ["iso26262_functional_safety.md"],
+  "constraints": [
+    {"id": "C1", "description": "Track incoming heartbeat arrival interval", "check": "heartbeat"},
+    {"id": "C2", "description": "Enforce 50ms Fault Tolerant Time Interval maximum limit", "check": "50"},
+    {"id": "C3", "description": "Trigger safe state transition with torque disable upon timeout", "check": "safe"},
+    {"id": "C4", "description": "Maintain normal actuation while heartbeat is refreshed within deadline", "check": "True"}
+  ]
+}

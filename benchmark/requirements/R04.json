@@ -1,0 +1,13 @@
+{
+  "id": "R04",
+  "category": "Diagnostics DEM",
+  "asil": "ASIL-A",
+  "requirement": "The system shall debounce coolant temperature sensor faults for 3 consecutive execution cycles before confirming Diagnostic Trouble Code DTC_COOLANT_TEMP_FAULT and storing freeze frame data.",
+  "relevant_documents": ["autosar_diagnostics.md"],
+  "constraints": [
+    {"id": "C1", "description": "Implement consecutive fault debounce counter", "check": "debounce"},
+    {"id": "C2", "description": "Keep fault in PENDING state before reaching threshold", "check": "PENDING"},
+    {"id": "C3", "description": "Transition fault to CONFIRMED state upon reaching 3 cycles", "check": "CONFIRMED"},
+    {"id": "C4", "description": "Record freeze frame snapshot into non-volatile memory dictionary", "check": "confirmed_dtcs"}
+  ]
+}

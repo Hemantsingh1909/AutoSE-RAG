@@ -1,0 +1,12 @@
+{
+  "id": "R13",
+  "category": "Diagnostics",
+  "asil": "ASIL-A",
+  "requirement": "The engine control unit shall record freeze frame snapshot data into non-volatile memory immediately when misfire fault is qualified.",
+  "relevant_documents": ["autosar_diagnostics.md"],
+  "constraints": [
+    {"id": "C1", "description": "Debounce and qualify misfire error condition", "check": "misfire"},
+    {"id": "C2", "description": "Capture freeze frame snapshot into non-volatile memory dictionary", "check": "confirmed_dtcs"},
+    {"id": "C3", "description": "Return confirmed diagnostic status", "check": "CONFIRMED"}
+  ]
+}

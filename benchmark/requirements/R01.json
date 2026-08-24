@@ -1,0 +1,14 @@
+{
+  "id": "R01",
+  "category": "Sensor Validation",
+  "asil": "ASIL-B",
+  "requirement": "The system shall validate dual redundant accelerator pedal position sensors (PPS1, PPS2) between 0.5V and 4.5V and reject readings if discrepancy exceeds 0.2V.",
+  "relevant_documents": ["sensor_validation_safety.md", "iso26262_functional_safety.md"],
+  "constraints": [
+    {"id": "C1", "description": "Validate PPS1 electrical range between 0.5V and 4.5V", "check": "0.5"},
+    {"id": "C2", "description": "Validate PPS2 electrical range between 0.5V and 4.5V", "check": "4.5"},
+    {"id": "C3", "description": "Reject reading when absolute discrepancy |PPS1 - PPS2| > 0.2V", "check": "0.2"},
+    {"id": "C4", "description": "Emit explicit electrical fault diagnostic status on boundary violation", "check": "ELECTRICAL"},
+    {"id": "C5", "description": "Return plausible status when all signals satisfy physical criteria", "check": "PLAUSIBLE"}
+  ]
+}

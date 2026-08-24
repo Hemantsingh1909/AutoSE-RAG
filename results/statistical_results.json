@@ -1,0 +1,23 @@
+{
+  "traceability_m2_vs_m1": {
+    "t_stat": Infinity,
+    "raw_p": 0.0,
+    "holm_adj_p": 0.0,
+    "cohens_dz": 0.0,
+    "significant": true
+  },
+  "traceability_m2_vs_m0": {
+    "t_stat": 17.218,
+    "raw_p": 0.03693298,
+    "holm_adj_p": 0.073866,
+    "cohens_dz": 12.175,
+    "significant": false
+  },
+  "traceability_m1_vs_m0": {
+    "t_stat": 11.297,
+    "raw_p": 0.05620635,
+    "holm_adj_p": 0.073866,
+    "cohens_dz": 7.988,
+    "significant": false
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "R14",
+  "category": "High Voltage",
+  "asil": "ASIL-D",
+  "requirement": "The high voltage interlock loop (HVIL) monitor shall trigger emergency inverter shutdown if continuity check impedance exceeds 10 Ohms.",
+  "relevant_documents": ["iso26262_functional_safety.md"],
+  "constraints": [
+    {"id": "C1", "description": "Monitor continuity check impedance", "check": "impedance"},
+    {"id": "C2", "description": "Enforce 10 Ohm maximum continuity limit", "check": "10"},
+    {"id": "C3", "description": "Trigger emergency inverter shutdown on open circuit", "check": "DIAGNOSTIC"},
+    {"id": "C4", "description": "Enable high voltage inverter operation when impedance is normal", "check": "STATUS_OK"}
+  ]
+}

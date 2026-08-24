@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this research platform or benchmark dataset in your work, please cite it as below."
+authors:
+  - family-names: "Satwal"
+    given-names: "Hemant"
+title: "AutoSE-RAG: An Agentic Retrieval-Augmented Generation Platform for Safety-Critical Software Engineering"
+version: 2.0.0
+date-released: 2026-08-25
+url: "https://github.com/hemantsingh/ai-software-engineering-assistant"
+keywords:
+  - "agentic ai"
+  - "retrieval-augmented generation"
+  - "safety-critical software"
+  - "iso 26262"
+  - "software traceability"
+  - "self-healing code"
+license: MIT

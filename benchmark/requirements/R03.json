@@ -1,0 +1,14 @@
+{
+  "id": "R03",
+  "category": "Communication Security",
+  "asil": "ASIL-D",
+  "requirement": "The system shall verify AUTOSAR E2E message frames by calculating CRC-32 over Data ID, alive counter, and payload, discarding frames with CRC mismatch or sequence gap.",
+  "relevant_documents": ["e2e_communication_security.md"],
+  "constraints": [
+    {"id": "C1", "description": "Include Data ID identifier into the CRC calculation", "check": "data_id"},
+    {"id": "C2", "description": "Compute and verify 32-bit CRC against received checksum", "check": "crc"},
+    {"id": "C3", "description": "Track monotonic sequence counter and detect gaps", "check": "counter"},
+    {"id": "C4", "description": "Drop corrupted frames on CRC mismatch", "check": "False"},
+    {"id": "C5", "description": "Return E2E_OK status on valid frame authentication", "check": "E2E_OK"}
+  ]
+}

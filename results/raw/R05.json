@@ -1,0 +1,48 @@
+{
+  "requirement_id": "R05",
+  "category": "Safety & SPoF",
+  "m0_result": {
+    "ast_valid": true,
+    "constraint_coverage": 0.0,
+    "initial_pass_rate": 0.0,
+    "final_pass_rate": 0.0,
+    "hallucination_rate": 0.0,
+    "traceability_score": 0.08,
+    "initial_failure": true,
+    "repaired_success": false,
+    "regressed": false
+  },
+  "m1_result": {
+    "ast_valid": true,
+    "constraint_coverage": 0.0,
+    "initial_pass_rate": 0.0,
+    "final_pass_rate": 0.0,
+    "hallucination_rate": 0.0,
+    "traceability_score": 0.45,
+    "initial_failure": true,
+    "repaired_success": false,
+    "regressed": false
+  },
+  "m2_result": {
+    "ast_valid": true,
+    "constraint_coverage": 1.0,
+    "initial_pass_rate": 0.0,
+    "final_pass_rate": 1.0,
+    "hallucination_rate": 0.0,
+    "traceability_score": 1.0,
+    "initial_failure": true,
+    "repaired_success": true,
+    "regressed": false,
+    "revisions_count": 1
+  },
+  "diagnostic_trace": {
+    "req_id": "R05",
+    "category": "Safety & SPoF",
+    "initial_status": "FAIL",
+    "taxonomy": "F6",
+    "critic_diagnosis": "[F6 Ungrounded API / Domain Interface Mismatch]: Uses non-ex...",
+    "revision_action": "Synthesize cross-channel supervisor",
+    "final_status": "PASS",
+    "repaired": "YES (Self-Healed)"
+  }
+}

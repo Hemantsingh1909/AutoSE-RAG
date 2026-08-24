@@ -1,0 +1,14 @@
+{
+  "id": "R15",
+  "category": "Software Update",
+  "asil": "ASIL-D",
+  "requirement": "The bootloader shall validate dual-bank A/B firmware partitions with SHA-256 integrity check and automatically roll back to the fallback bank if the boot watchdog timer expires before confirmation.",
+  "relevant_documents": ["fota_software_update_safety.md", "iso26262_functional_safety.md"],
+  "constraints": [
+    {"id": "C1", "description": "Manage active and inactive dual-bank partitions (Bank A / Bank B)", "check": "bank"},
+    {"id": "C2", "description": "Verify cryptographic SHA-256 checksum on firmware payload", "check": "sha256"},
+    {"id": "C3", "description": "Start boot watchdog timer upon staging new partition", "check": "watchdog"},
+    {"id": "C4", "description": "Perform automatic fallback rollback on boot timeout", "check": "rollback"},
+    {"id": "C5", "description": "Commit partition on successful boot confirmation call", "check": "confirm"}
+  ]
+}

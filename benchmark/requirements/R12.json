@@ -1,0 +1,13 @@
+{
+  "id": "R12",
+  "category": "Sensor Glitch",
+  "asil": "ASIL-B",
+  "requirement": "The manifold absolute pressure (MAP) sensor module shall freeze last valid reading for 200ms upon detection of electrical glitch before switching to limp-home default value.",
+  "relevant_documents": ["sensor_validation_safety.md"],
+  "constraints": [
+    {"id": "C1", "description": "Detect electrical glitch out of allowed ADC range", "check": "range"},
+    {"id": "C2", "description": "Freeze last valid reading during 200ms debounce interval", "check": "freeze"},
+    {"id": "C3", "description": "Substitute calibrated limp-home default value upon persistent fault", "check": "default"},
+    {"id": "C4", "description": "Emit diagnostic glitch event flag", "check": "DIAGNOSTIC"}
+  ]
+}

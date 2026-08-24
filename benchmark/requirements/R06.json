@@ -1,0 +1,14 @@
+{
+  "id": "R06",
+  "category": "Energy & BMS",
+  "asil": "ASIL-C",
+  "requirement": "The battery management system shall reject cell voltage readings outside 2.5V to 4.2V and isolate contactors if temperature gradient exceeds 5°C/second.",
+  "relevant_documents": ["sensor_validation_safety.md"],
+  "constraints": [
+    {"id": "C1", "description": "Validate cell voltage lower limit (2.5V)", "check": "2.5"},
+    {"id": "C2", "description": "Validate cell voltage upper limit (4.2V)", "check": "4.2"},
+    {"id": "C3", "description": "Detect thermal gradient rate exceeding 5°C/second", "check": "5"},
+    {"id": "C4", "description": "Command contactor isolation on threshold violation", "check": "False"},
+    {"id": "C5", "description": "Return healthy battery status for valid inputs", "check": "STATUS_OK"}
+  ]
+}
